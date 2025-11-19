@@ -7,6 +7,6 @@ import com.example.backend.model.Categoria;
 
 
 @Repository
-public interface CategoriaRepository extends JpaRepository<Categoria, Long>{
+public interface CategoriaRepository extends JpaRepository<Categoria, Integer>{
 
 }

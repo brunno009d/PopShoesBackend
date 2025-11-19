@@ -7,6 +7,6 @@ import com.example.backend.model.Rol;
 
 
 @Repository
-public interface RolRepository extends JpaRepository<Rol, Long>{
+public interface RolRepository extends JpaRepository<Rol, Integer>{
     
 }

@@ -7,6 +7,6 @@ import com.example.backend.model.Talla;
 
 
 @Repository
-public interface TallaRepository extends JpaRepository<Talla, Long>{
+public interface TallaRepository extends JpaRepository<Talla, Integer>{
     
 }

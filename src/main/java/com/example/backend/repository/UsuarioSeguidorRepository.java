@@ -3,9 +3,9 @@ package com.example.backend.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.example.backend.model.Color;
+import com.example.backend.model.UsuarioSeguidor;
 
 @Repository
-public interface ColorRepository extends JpaRepository<Color, Integer>{
-
+public interface  UsuarioSeguidorRepository extends JpaRepository<UsuarioSeguidor, Integer>{
+    
 }

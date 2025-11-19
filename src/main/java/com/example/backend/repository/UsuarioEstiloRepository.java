@@ -7,6 +7,6 @@ import com.example.backend.model.UsuarioEstilo;
 
 
 @Repository
-public interface UsuarioEstiloRepository extends JpaRepository<UsuarioEstilo, Long>{
+public interface UsuarioEstiloRepository extends JpaRepository<UsuarioEstilo, Integer>{
     
 }

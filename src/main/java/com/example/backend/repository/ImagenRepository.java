@@ -8,6 +8,6 @@ import com.example.backend.model.Imagen;
 
 
 @Repository
-public interface ImagenRepository extends JpaRepository<Imagen, Object>{
+public interface ImagenRepository extends JpaRepository<Imagen, Integer>{
     
 }

@@ -7,6 +7,6 @@ import com.example.backend.model.Genero;
 
 
 @Repository
-public interface GeneroRepository extends JpaRepository<Genero, Long>{
+public interface GeneroRepository extends JpaRepository<Genero, Integer>{
     
 }

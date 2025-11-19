@@ -7,6 +7,6 @@ import com.example.backend.model.DetalleCompra;
 
 
 @Repository
-public interface DetalleCompraRepository extends JpaRepository<DetalleCompra, Long>{
+public interface DetalleCompraRepository extends JpaRepository<DetalleCompra, Integer>{
     
 }

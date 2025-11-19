@@ -10,6 +10,7 @@ public interface UsuarioRepository extends JpaRepository<Usuario, Integer> {
     
     Usuario findByCorreo(String correo);
 
+    Usuario findByNombreUsuario(String nombreUsuario);
     /*
     findByNombreContaining(String nombre)   
     Query personalizada para traer usuarios con calzados

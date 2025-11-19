@@ -7,6 +7,6 @@ import com.example.backend.model.Region;
 
 
 @Repository
-public interface RegionRepository extends JpaRepository<Region, Long>{
+public interface RegionRepository extends JpaRepository<Region, Integer>{
     
 }

@@ -7,6 +7,6 @@ import com.example.backend.model.Direccion;
 
 
 @Repository
-public interface DireccionRepository extends JpaRepository<Direccion, Long>{
+public interface DireccionRepository extends JpaRepository<Direccion, Integer>{
 
 }

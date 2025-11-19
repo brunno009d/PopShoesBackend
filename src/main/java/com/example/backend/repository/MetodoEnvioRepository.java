@@ -7,6 +7,6 @@ import com.example.backend.model.MetodoEnvio;
 
 
 @Repository
-public interface MetodoEnvioRepository extends JpaRepository<MetodoEnvio, Long>{
+public interface MetodoEnvioRepository extends JpaRepository<MetodoEnvio, Integer>{
     
 }

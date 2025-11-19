@@ -7,6 +7,6 @@ import com.example.backend.model.MetodoPago;
 
 
 @Repository
-public interface MetodoPagoRepository extends JpaRepository<MetodoPago, Long>{
+public interface MetodoPagoRepository extends JpaRepository<MetodoPago, Integer>{
     
 }

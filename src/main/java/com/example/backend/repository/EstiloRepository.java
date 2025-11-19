@@ -7,6 +7,6 @@ import com.example.backend.model.Estilo;
 
 
 @Repository
-public interface EstiloRepository extends JpaRepository<Estilo, Long>{
+public interface EstiloRepository extends JpaRepository<Estilo, Integer>{
 
 }
