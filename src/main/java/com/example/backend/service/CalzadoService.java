@@ -17,6 +17,34 @@ public class CalzadoService extends AbstractBaseService<Calzado, Integer> {
 
     private final CalzadoRepository calzadoRepository;
 
+    public Calzado partialUpdate(Calzado calzado) {
+        if (calzado == null || calzado.getId() == null) {
+            return null;
+        }
+
+        Calzado existente = calzadoRepository.findById(calzado.getId()).orElse(null);
+        if (existente == null) {
+            return null;
+        }
+
+        if (calzado.getNombre() != null) {
+            existente.setNombre(calzado.getNombre());
+        }
+        if (calzado.getPrecio() != null) {
+            existente.setPrecio(calzado.getPrecio());
+        }
+        if (calzado.getStock() != null) {
+            existente.setStock(calzado.getStock());
+        }
+        if (calzado.getMarca() != null) {
+            existente.setMarca(calzado.getMarca());
+        }
+        if (calzado.getGenero() != null) {
+            existente.setGenero(calzado.getGenero());
+        }
+        return calzadoRepository.save(existente);
+    }
+
     public CalzadoService(CalzadoRepository calzadoRepository) {
         super(calzadoRepository);
         this.calzadoRepository = calzadoRepository;

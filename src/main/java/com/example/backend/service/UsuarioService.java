@@ -8,24 +8,19 @@ import org.springframework.stereotype.Service;
 
 import com.example.backend.model.Usuario;
 import com.example.backend.repository.UsuarioRepository;
-import com.example.backend.core.AbstractBaseService;
 
 import jakarta.transaction.Transactional;
 
 @Service
 @Transactional
 @SuppressWarnings("null")
-public class UsuarioService extends AbstractBaseService<Usuario, Integer> {
-
-    private final UsuarioRepository usuarioRepository;
-    private final PasswordEncoder passwordEncoder;
+public class UsuarioService {
 
     @Autowired
-    public UsuarioService(UsuarioRepository usuarioRepository, PasswordEncoder passwordEncoder) {
-        super(usuarioRepository);
-        this.usuarioRepository = usuarioRepository;
-        this.passwordEncoder = passwordEncoder;
-    }
+    private UsuarioRepository usuarioRepository;
+    
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     public List<Usuario> findAll() {
         List<Usuario> usuarios = usuarioRepository.findAll();
@@ -56,7 +51,7 @@ public class UsuarioService extends AbstractBaseService<Usuario, Integer> {
             throw new IllegalArgumentException("El correo ya está en uso.");
         }
 
-        if (usuarioRepository.existsByNombreUsuario(usuario.getNombre())) {
+        if (usuarioRepository.existsByNombre(usuario.getNombre())) {
             throw new IllegalArgumentException("El nombre de usuario ya está en uso.");
         }
 
@@ -97,14 +92,14 @@ public class UsuarioService extends AbstractBaseService<Usuario, Integer> {
                 String passwordHasheada = passwordEncoder.encode(usuario.getContrasena());
                 existingUsuario.setContrasena(passwordHasheada);
             }
-            if (usuario.getAPaterno() != null) {
-                existingUsuario.setAPaterno(usuario.getAPaterno());
+            if (usuario.getApaterno() != null) {
+                existingUsuario.setApaterno(usuario.getApaterno());
             }
-            if (usuario.getAMaterno() != null) {
-                existingUsuario.setAMaterno(usuario.getAMaterno());
+            if (usuario.getAmaterno() != null) {
+                existingUsuario.setAmaterno(usuario.getAmaterno());
             }
-            if (usuario.getFehcaNacimiento() != null) {
-                existingUsuario.setFehcaNacimiento(usuario.getFehcaNacimiento());
+            if (usuario.getFechaNacimiento() != null) {
+                existingUsuario.setFechaNacimiento(usuario.getFechaNacimiento());
             }
             if (usuario.getFechaCreacion() != null) {
                 existingUsuario.setFechaCreacion(usuario.getFechaCreacion());

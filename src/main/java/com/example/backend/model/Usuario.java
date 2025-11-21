@@ -38,13 +38,13 @@ public class Usuario {
     private String correo;
 
     @Column(name = "a_paterno", nullable = false, length = 100)
-    private String aPaterno;
+    private String apaterno;
 
     @Column(name = "a_materno", nullable = false, length = 100)
-    private String aMaterno;
+    private String amaterno;
 
     @Column(name = "fecha_nacimiento", nullable = false)
-    private Date fehcaNacimiento;
+    private Date fechaNacimiento;
 
     @Column(name = "fecha_creacion", nullable = false)
     private Date fechaCreacion;

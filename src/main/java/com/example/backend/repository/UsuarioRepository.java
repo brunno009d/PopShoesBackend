@@ -10,7 +10,10 @@ public interface UsuarioRepository extends JpaRepository<Usuario, Integer> {
     
     Usuario findByCorreo(String correo);
 
-    Usuario findByNombreUsuario(String nombreUsuario);
+    boolean existsByCorreo(String correo);
+
+    boolean existsByNombre(String nombre);
+
     /*
     findByNombreContaining(String nombre)   
     Query personalizada para traer usuarios con calzados
