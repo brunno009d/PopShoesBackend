@@ -10,10 +10,6 @@ import com.example.backend.model.Calzado;
 
 @Repository
 public interface CalzadoRepository extends JpaRepository<Calzado, Integer>{
-
-    //Query sobre los colores
-
-    //Query sobre las tallas
     
     List<Calzado> findByNombreContaining(String nombre);
 
@@ -23,10 +19,12 @@ public interface CalzadoRepository extends JpaRepository<Calzado, Integer>{
 
     List<Calzado> findByPrecioBetween(Long precioMin, Long precioMax);
 
-    //Categoria
+    List<Calzado> findByEstilosId(Integer estiloId);
 
-    //Colores
-
-    // 
+    List<Calzado> findByCategoriasId(Integer categoriaId);
+    
+    List<Calzado> findByColoresId(Integer colorId);
+    
+    List<Calzado> findByTallasId(Integer tallaId);
 }
     

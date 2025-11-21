@@ -70,6 +70,28 @@ public class CalzadoService extends AbstractBaseService<Calzado, Integer> {
         return calzadoRepository.findByPrecioBetween(minimo, maximo);
     }
 
+    public List<Calzado> buscarPorCategoria(Integer categoriaId) {
+        if (categoriaId == null) return Collections.emptyList();
+        return calzadoRepository.findByCategoriasId(categoriaId);
+    }
+
+    public List<Calzado> buscarPorEstilo(Integer estiloId) {
+        if (estiloId == null) return Collections.emptyList();
+        return calzadoRepository.findByEstilosId(estiloId);
+    }
+
+    public List<Calzado> buscarPorColor(Integer colorId) {
+        if (colorId == null) return Collections.emptyList();
+        return calzadoRepository.findByColoresId(colorId);
+    }
+
+    public List<Calzado> buscarPorTalla(Integer tallaId) {
+        if (tallaId == null) return Collections.emptyList();
+        return calzadoRepository.findByTallasId(tallaId);
+    }
+
+
+
     public boolean tieneStock(Integer id, int cantidad) {
         return calzadoRepository.findById(id)
         .map(c -> c.getStock() != null && c.getStock() >= cantidad)
