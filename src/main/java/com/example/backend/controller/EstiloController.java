@@ -15,59 +15,59 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.backend.model.Imagen;
-import com.example.backend.service.ImagenService;
+import com.example.backend.model.Estilo;
+import com.example.backend.service.EstiloService;
 
 @RestController
-@RequestMapping("/api/imagenes")
-public class ImagenController {
+@RequestMapping("/api/estilos")
+public class EstiloController {
 
     @Autowired
-    private ImagenService imagenService;
+    private EstiloService estiloService;
 
     @GetMapping
-    public ResponseEntity<List<Imagen>> obtenerTodos() {
-        List<Imagen> list = imagenService.obtenerTodos();
+    public ResponseEntity<List<Estilo>> obtenerTodos() {
+        List<Estilo> list = estiloService.obtenerTodos();
         if (list.isEmpty()) return ResponseEntity.noContent().build();
         return ResponseEntity.ok(list);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Imagen> obtenerPorId(@PathVariable Integer id) {
-        Imagen i = imagenService.obtenerPorId(id);
-        if (i == null) return ResponseEntity.notFound().build();
-        return ResponseEntity.ok(i);
+    public ResponseEntity<Estilo> obtenerPorId(@PathVariable Integer id) {
+        Estilo e = estiloService.obtenerPorId(id);
+        if (e == null) return ResponseEntity.notFound().build();
+        return ResponseEntity.ok(e);
     }
 
     @PostMapping
-    public ResponseEntity<Imagen> crear(@RequestBody Imagen imagen) {
-        Imagen creado = imagenService.crear(imagen);
+    public ResponseEntity<Estilo> crear(@RequestBody Estilo estilo) {
+        Estilo creado = estiloService.crear(estilo);
         return ResponseEntity.status(HttpStatus.CREATED).body(creado);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Imagen> actualizar(@PathVariable Integer id, @RequestBody Imagen imagen) {
-        Imagen existente = imagenService.obtenerPorId(id);
+    public ResponseEntity<Estilo> actualizar(@PathVariable Integer id, @RequestBody Estilo estilo) {
+        Estilo existente = estiloService.obtenerPorId(id);
         if (existente == null) return ResponseEntity.notFound().build();
-        Imagen guardado = imagenService.actualizar(id, imagen);
+        Estilo guardado = estiloService.actualizar(id, estilo);
         return ResponseEntity.ok(guardado);
+    }
+
+    @PatchMapping("/{id}")
+    public ResponseEntity<Estilo> editar(@PathVariable Integer id, @RequestBody Estilo estilo) {
+        Estilo actEstilo = estiloService.partialUpdate(estilo);
+        if (actEstilo == null) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(actEstilo);
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> eliminar(@PathVariable Integer id) {
-        Imagen existente = imagenService.obtenerPorId(id);
+        Estilo existente = estiloService.obtenerPorId(id);
         if (existente == null) return ResponseEntity.notFound().build();
-        boolean ok = imagenService.eliminar(id);
+        boolean ok = estiloService.eliminar(id);
         if (ok) return ResponseEntity.noContent().build();
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
-    }
-
-    @PatchMapping("/{id}")
-    public ResponseEntity<Imagen> editar(@PathVariable Integer id, @RequestBody Imagen imagen) {
-        Imagen actImagen = imagenService.partialUpdate(imagen);
-        if (actImagen == null) {
-            return ResponseEntity.notFound().build();
-        }
-        return ResponseEntity.ok(actImagen);
     }
 }
